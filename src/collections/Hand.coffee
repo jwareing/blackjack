@@ -2,10 +2,17 @@ class window.Hand extends Backbone.Collection
   model: Card
 
   initialize: (array, @deck, @isDealer) ->
+    @
+      .on 'change add', =>
+        @scores()
+        @checkBust()
 
   hit: ->
     @add(@deck.pop())
     @last()
+
+  stand: ->
+    @trigger('stand')
 
 
   hasAce: -> @reduce (memo, card) ->
@@ -16,6 +23,10 @@ class window.Hand extends Backbone.Collection
     score + if card.get 'revealed' then card.get 'value' else 0
   , 0
 
+  revealFirst: ->
+    @at 0
+      .flip()
+
   scores: ->
     # The scores are an array of potential scores.
     # Usually, that array contains one element. That is the only score.
@@ -23,3 +34,5 @@ class window.Hand extends Backbone.Collection
     [@minScore(), @minScore() + 10 * @hasAce()]
 
 
+  checkBust: ->
+    @trigger('bust') if @minScore() > 21
