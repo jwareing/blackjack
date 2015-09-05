@@ -43,7 +43,7 @@ class window.ChipView extends Backbone.View
         @calculate 20
 
   calculate: (amount) ->
-    if (@model.get 'bank') - amount >= 0
+    if ((@model.get 'bank') - amount )>= -.1
       @model.set 'betAmount', 
         (@model.get 'betAmount') + amount
       @model.set 'bank', 

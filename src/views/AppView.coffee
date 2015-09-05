@@ -36,7 +36,9 @@ class window.AppView extends Backbone.View
   '
 
   events:
-    'click .hit-button': -> @model.get('playerHand').hit()
+    'click .hit-button': -> 
+      @model.get('playerHand').hit()
+      @$('.double-button').hide()
     'click .stand-button': -> @model.get('playerHand').stand()
     'click .double-button': -> 
       betAmount = @model.get 'betAmount'
