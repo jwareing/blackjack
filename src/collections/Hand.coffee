@@ -3,7 +3,7 @@ class window.Hand extends Backbone.Collection
 
   initialize: (array, @deck, @isDealer) ->
     @
-      .on 'change add', =>
+      .on 'change add reset', =>
         @scores()
         @checkBust()
 
@@ -25,7 +25,7 @@ class window.Hand extends Backbone.Collection
 
   revealFirst: ->
     @at 0
-      .flip()
+      .set 'revealed', true
 
   scores: ->
     # The scores are an array of potential scores.

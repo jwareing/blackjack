@@ -1,16 +1,56 @@
 .card {
-  float: left;
-  border: solid 1px black;
-  width: 100px;
-  border-radius: 5px;
-  height: 140px;
-  margin-right: 20px;
+  width: 72px;
+  height: 100px;
+  border-radius: 5%;
+  display: inline-block;
+  margin-left: -50px !important;
 }
 
-.covered {
-  background-color: black;
+.player-hand-container .hand{
+  top: 340px;
+  left: 500px;
+}
+
+.dealer-hand-container .hand{
+  top: 85px;
+  left: 500px;
 }
 
 .hand {
-  overflow: auto;
+  display: inline-block;
+  position: absolute;
+}
+
+.table {
+  height: 600px;
+  position: absolute;
+  z-index: -1000;
+}
+
+.card img {
+  position: absolute;
+  height: 100px;
+  width: auto;
+}
+
+body {
+  margin: 0 !important;
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+}
+
+.hit-button, .stand-button {
+  top: 530px;
+  left: 445px;
+  margin-right: 10px;
+}
+
+.score-text {
+  font-size: 20px;
+  margin: 10px 0;
 }

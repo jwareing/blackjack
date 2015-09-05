@@ -6,20 +6,19 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
 
-    console.log @
     player = @get 'playerHand'
     dealer = @get 'dealerHand'
 
     player
-      .on 'bust', () ->
-        lose()
+      .on 'bust', () =>
+        @lose()
 
     player
-      .on 'stand', () ->
+      .on 'stand', () =>
         dealer
           .revealFirst()
         dealer
-          .hit() while dealer.scores()[0] < 17
+          .hit() until dealer.minScore() >= 17
 
         dScore = dealer.scores()[0]
         if player.scores()[1] <= 21
@@ -27,17 +26,17 @@ class window.App extends Backbone.Model
         else
           pScore = player.scores()[0]
         if dScore > pScore and dScore <=21
-          lose()
+          @lose()
         else if dScore == pScore
-          tie()
+          @tie()
         else
-          win()
+          @win()
 
-    lose = () ->
-      console.log 'you lost'
+  lose: ->
+    console.log 'you lost'
 
-    win = () ->
-      console.log 'you won'
+  win: ->
+    console.log 'you won'
 
-    tie = () ->
-      console.log 'you tied'
+  tie: ->
+    console.log 'you tied'
