@@ -1,26 +1,31 @@
 <html>
-  <head>
+
+<head>
     <title>Blackjack</title>
     <link href="styles/app.css" rel="stylesheet" type="text/css" media="screen">
     <link href="bower_components/materialize/dist/css/materialize.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="lib/animate.css" rel="stylesheet" type="text/css" media="screen">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Patua+One|Righteous' rel='stylesheet' type='text/css'>
+</head>
 
-  </head>
-  <body>
+<body>
     <script src="lib/jquery.js"></script>
     <script src="lib/underscore.js"></script>
     <script src="lib/backbone.js"></script>
     <script src="bower_components/materialize/dist/js/materialize.js"></script>
-
     <script src="compiled/src/models/Card.js"></script>
     <script src="compiled/src/collections/Hand.js"></script>
     <script src="compiled/src/collections/Deck.js"></script>
     <script src="compiled/src/models/App.js"></script>
-
     <script src="compiled/src/views/CardView.js"></script>
     <script src="compiled/src/views/HandView.js"></script>
     <script src="compiled/src/views/AppView.js"></script>
-
+    <script src="compiled/src/views/ChipView.js"></script>
     <script src="compiled/src/main.js"></script>
-  </body>
+    <a class="waves-effect waves-light btn modal-trigger result-button win-button" href="#win-modal"></a>
+    <a class="waves-effect waves-light btn modal-trigger result-button lose-button" href="#lose-modal"></a>
+    <a class="waves-effect waves-light btn modal-trigger result-button tie-button" href="#tie-modal"></a>
+</body>
+
 </html>

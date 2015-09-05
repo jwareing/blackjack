@@ -1,14 +1,14 @@
 .card {
-  width: 72px;
+  width: 69px;
   height: 100px;
-  border-radius: 5%;
   display: inline-block;
   margin-left: -50px !important;
+  border-radius: 4px !important;
 }
 
 .player-hand-container .hand{
-  top: 340px;
-  left: 500px;
+  top: 322px;
+  left: 515px;
 }
 
 .dealer-hand-container .hand{
@@ -19,6 +19,7 @@
 .hand {
   display: inline-block;
   position: absolute;
+
 }
 
 .table {
@@ -31,6 +32,8 @@
   position: absolute;
   height: 100px;
   width: auto;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 body {
@@ -42,15 +45,103 @@ body {
   radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
   background-color:#282828;
   background-size:16px 16px;
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
 }
 
-.hit-button, .stand-button {
+.hit-button, .stand-button, .double-button {
   top: 530px;
   left: 445px;
   margin-right: 10px;
 }
 
+.deal-button {
+  top: 530px;
+  left: 477px;
+}
+
 .score-text {
-  font-size: 20px;
-  margin: 10px 0;
+  margin: 10px 0 10px -35px;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  -webkit-text-stroke: 1px white;
+}
+
+.result-button {
+  display: none !important;
+}
+
+.modal {
+  width: 300px !important;
+  top: 200px !important;
+  height: 140px !important;
+  padding-bottom: 0 !important;
+}
+
+.modal-content {
+  padding-bottom: 10px !important;
+}
+
+.chip {
+  position: absolute;
+  height: 36px;
+  width: 47px;
+}
+
+.chip-040 {
+  top: 455px;
+  left: 60px;
+  
+}
+.chip-1 {
+  top: 482px;
+  left: 110px;
+  
+}
+.chip-4 {
+  top: 496px;
+  left: 162px;
+  
+}
+.chip-10 {
+  top: 508px;
+  left: 214px;
+  
+}
+.chip-20 {
+  top: 518px;
+  left: 267px;
+}
+
+.chip-holder {
+  position: absolute;
+}
+
+.betAmount {
+  top: 410px;
+  left: 100px;
+  -webkit-text-stroke: 1px white;
+}
+.bank {
+  top: 560px;
+  left: 5px;
+  color: #1E851B;
+  -webkit-text-stroke: 1px silver;
+}
+
+.money {
+  position: absolute;
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  height: 50px;
+  width: 300px;
+}
+
+.dealer-score {
+  margin-left: -50px;
+}
+
+.player-score {
+  margin-left: -60px;
 }

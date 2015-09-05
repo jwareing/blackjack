@@ -2,6 +2,11 @@
 # of containing the game logic directly.
 class window.App extends Backbone.Model
   initialize: ->
+    @redeal()
+    @set 'bank', 150
+    @set 'betAmount', 0
+
+  redeal: ->
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
@@ -20,11 +25,8 @@ class window.App extends Backbone.Model
         dealer
           .hit() until dealer.minScore() >= 17
 
-        dScore = dealer.scores()[0]
-        if player.scores()[1] <= 21
-          pScore = player.scores()[1]
-        else
-          pScore = player.scores()[0]
+        dScore = dealer.minScore()
+        pScore = player.bestScore()
         if dScore > pScore and dScore <=21
           @lose()
         else if dScore == pScore
@@ -32,11 +34,28 @@ class window.App extends Backbone.Model
         else
           @win()
 
+    player
+      .on 'double', () =>
+        @trigger 'double'
+
   lose: ->
-    console.log 'you lost'
+    $('.lose-button').click();
+    @set 'betAmount', 0
+
 
   win: ->
-    console.log 'you won'
+    $('.win-button').click();
+    @set 'bank', (@get 'bank') + 2*(@get 'betAmount')
+    @set 'betAmount', 0
+
 
   tie: ->
-    console.log 'you tied'
+    $('.tie-button').click();
+    @set 'bank', (@get 'bank') + (@get 'betAmount')
+    @set 'betAmount', 0
+
+
+  resetGame: ->
+    @set 'deck', deck = new Deck()
+    @set 'playerHand', deck.dealPlayer()
+    @set 'dealerHand', deck.dealDealer()

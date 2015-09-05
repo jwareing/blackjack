@@ -14,6 +14,9 @@ class window.Hand extends Backbone.Collection
   stand: ->
     @trigger('stand')
 
+  double: ->
+    @trigger('double')
+
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -36,3 +39,13 @@ class window.Hand extends Backbone.Collection
 
   checkBust: ->
     @trigger('bust') if @minScore() > 21
+    if @minScore() > 21
+      true
+    else
+      false
+
+  bestScore: ->
+    if @scores()[1] <= 21
+       @scores()[1]
+      else
+        @scores()[0]
